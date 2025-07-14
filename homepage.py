@@ -32,16 +32,10 @@ if not st.session_state.authenticated:
         if submitted and check_login(username, password):
             st.session_state.authenticated = True
             st.session_state.username = username
-            st.session_state.role = users[username]["role"]
             st.success("Connexion réussie!")
             st.rerun()
         elif submitted:
             st.error("Identifiants incorrects.")
 else:
     st.sidebar.button("🔒 Se déconnecter", on_click=lambda: st.session_state.update({"authenticated": False}))
-    st.write(f" Bonjour **{st.session_state.username}**. Vous êtes connecté en tant que {st.session_state.role}.")
     st.write("🚪 Utilisez le menu à gauche pour naviguer.")
-    if st.session_state.role == "admin":
-        st.success("✅ Accès admin accordé.")
-    else:
-        st.info("👀 Accès limité en lecture seule.")
