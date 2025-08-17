@@ -17,3 +17,4 @@ def log_closure_change(username, efp, old_date, new_date):
                                 "Ancienne Date": old_date,
                                 "Nouvelle Date": new_date,
                                 "Date et heure": datetime.now() })
+                
